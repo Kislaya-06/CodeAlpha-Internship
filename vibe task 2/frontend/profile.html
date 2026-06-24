@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Vibe 🔥</title>
+  <!-- Google Fonts Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo" onclick="window.location.href='index.html'">Vibe 🔥</div>
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search Vibe..." class="search-input" id="search-bar">
+    </div>
+    <div class="nav-actions" id="nav-actions">
+      <!-- Generated via JS -->
+    </div>
+  </nav>
+
+  <!-- Profile Layout Container -->
+  <div class="container" style="max-width: 900px;">
+    
+    <!-- Cover Banner -->
+    <div class="profile-banner"></div>
+
+    <!-- Profile Info Header Card -->
+    <div class="card profile-header-card">
+      <div id="profile-avatar">
+        <!-- Avatar large loaded via JS -->
+      </div>
+      <h1 class="profile-name" id="profile-name">-</h1>
+      <p class="profile-bio" id="profile-bio">-</p>
+
+      <!-- Stats row -->
+      <div class="profile-stats">
+        <div class="profile-stat-item">
+          <span class="profile-stat-val" id="profile-post-count">0</span> Posts
+        </div>
+        <div class="profile-stat-item">
+          <span class="profile-stat-val" id="profile-follower-count">0</span> Followers
+        </div>
+        <div class="profile-stat-item">
+          <span class="profile-stat-val" id="profile-following-count">0</span> Following
+        </div>
+      </div>
+
+      <!-- Action Button (Follow / Edit Profile) -->
+      <div id="profile-action-container">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+
+    <!-- Tabs Selection -->
+    <div class="tabs-container">
+      <button class="tab-btn active">Posts</button>
+    </div>
+
+    <!-- User Posts Grid -->
+    <div class="posts-grid" id="posts-grid">
+      <!-- Loaded dynamically -->
+    </div>
+
+  </div>
+
+  <!-- Shared Modal Structure for Post Detail / Edit Profile -->
+  <div class="modal" id="post-detail-modal">
+    <!-- Loaded dynamically -->
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "email": "alice@example.com",
+    "password": "$2a$10$boFM2wEIvYuM.4SWx50gkuZfJFBRhh9v9v3Aubtxa7VoufXsXWNxS",
+    "bio": "Avid traveler & photographer",
+    "avatar": "https://i.pravatar.cc/150?img=1"
+  },
+  {
+    "id": 2,
+    "name": "Bob Smith",
+    "email": "bob@example.com",
+    "password": "$2a$10$boFM2wEIvYuM.4SWx50gkuZfJFBRhh9v9v3Aubtxa7VoufXsXWNxS",
+    "bio": "Tech enthusiast and foodie",
+    "avatar": "https://i.pravatar.cc/150?img=2"
+  },
+  {
+    "id": 3,
+    "name": "Charlie Brown",
+    "email": "charlie@example.com",
+    "password": "$2a$10$boFM2wEIvYuM.4SWx50gkuZfJFBRhh9v9v3Aubtxa7VoufXsXWNxS",
+    "bio": "Music lover & dog person",
+    "avatar": "https://i.pravatar.cc/150?img=3"
+  },
+  {
+    "id": 4,
+    "name": "Kislaya Agarwal",
+    "email": "agarwalkislaya@gmail.com",
+    "password": "$2a$10$vjLJxDnDEvVcrjRIVrYym.5ZETj/OXvf.ukrCq1C4HRE/YJAKwe0G",
+    "bio": "",
+    "avatar": "https://i.pravatar.cc/150?img=58"
+  }
+]

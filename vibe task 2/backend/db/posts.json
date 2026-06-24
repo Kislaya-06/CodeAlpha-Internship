@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "user_id": 1,
+    "content": "Exploring the beautiful mountains today! #nature",
+    "image": "https://picsum.photos/600/400?random=1",
+    "likes": [],
+    "created_at": "2026-06-24T10:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "user_id": 2,
+    "content": "Just cooked a delicious home-made lasagna! 🍝",
+    "image": "https://picsum.photos/600/400?random=2",
+    "likes": [],
+    "created_at": "2026-06-24T11:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "user_id": 3,
+    "content": "Attended an amazing rock concert last night. The energy was insane!",
+    "image": "https://picsum.photos/600/400?random=3",
+    "likes": [],
+    "created_at": "2026-06-24T12:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "user_id": 1,
+    "content": "Sunsets like these make you appreciate life. 🌅",
+    "image": "https://picsum.photos/600/400?random=4",
+    "likes": [],
+    "created_at": "2026-06-24T12:30:00.000Z"
+  },
+  {
+    "id": 5,
+    "user_id": 2,
+    "content": "Coding late into the night. Express + Node is so clean!",
+    "image": "https://picsum.photos/600/400?random=5",
+    "likes": [],
+    "created_at": "2026-06-24T13:45:00.000Z"
+  },
+  {
+    "id": 6,
+    "user_id": 1,
+    "content": "This is a test post from validation script!",
+    "image": "https://picsum.photos/600/400?random=6",
+    "likes": [
+      1
+    ],
+    "created_at": "2026-06-24T08:36:48.432Z"
+  },
+  {
+    "id": 7,
+    "user_id": 1,
+    "content": "Testing updated Vibe routes!",
+    "image": "https://picsum.photos/600/400?random=7",
+    "likes": [
+      1
+    ],
+    "created_at": "2026-06-24T08:39:17.602Z"
+  }
+]

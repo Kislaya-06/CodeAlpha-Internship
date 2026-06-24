@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "post_id": 6,
+    "user_id": 1,
+    "content": "Wow, great validation script!",
+    "created_at": "2026-06-24T08:36:48.437Z"
+  },
+  {
+    "id": 2,
+    "post_id": 7,
+    "user_id": 1,
+    "content": "This comment endpoint works perfectly!",
+    "created_at": "2026-06-24T08:39:17.607Z"
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "items": [
+      {
+        "productId": 1,
+        "name": "Wireless Headphones",
+        "price": 99.99,
+        "quantity": 2
+      }
+    ],
+    "total": 199.98,
+    "status": "Pending",
+    "createdAt": "2026-06-24T08:15:40.087Z"
+  },
+  {
+    "id": 2,
+    "user_id": 2,
+    "items": [
+      {
+        "product_id": 1,
+        "name": "Wireless Headphones",
+        "price": 99.99,
+        "description": "High-quality noise-canceling wireless over-ear headphones.",
+        "image": "https://picsum.photos/300/200?random=1",
+        "category": "Electronics",
+        "quantity": 2
+      }
+    ],
+    "total_amount": 199.98,
+    "status": "placed",
+    "date": "2026-06-24T08:17:31.101Z"
+  },
+  {
+    "id": 3,
+    "user_id": 3,
+    "items": [
+      {
+        "product_id": 1,
+        "name": "Wireless Headphones",
+        "price": 99.99,
+        "description": "High-quality noise-canceling wireless over-ear headphones.",
+        "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
+        "category": "Electronics",
+        "quantity": 2
+      }
+    ],
+    "total_amount": 199.98,
+    "status": "placed",
+    "date": "2026-06-24T08:18:42.518Z"
+  }
+]

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopNest - Premium E-Commerce Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fixed Top Navbar -->
+  <nav class="navbar" id="navbar"></nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-heading">Find Everything
+You Love</h1>
+      <p class="hero-subtext">Shop the latest trends in Electronics, Clothing & Books with high quality and rapid shipping.</p>
+      <div class="hero-btns">
+        <button class="btn-hero-primary" onclick="scrollToProducts()">Shop Now</button>
+        <button class="btn-hero-secondary" onclick="scrollToProducts('Electronics')">View Deals</button>
+      </div>
+    </div>
+    <div class="hero-images">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Headphones" class="hero-img hero-img-1">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Smart Watch" class="hero-img hero-img-2">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Sneakers" class="hero-img hero-img-3">
+    </div>
+  </header>
+
+  <!-- Category Pills Row -->
+  <div class="categories-container" id="categories-section">
+    <div class="category-pills">
+      <button class="category-pill active" onclick="selectCategory('All')">All 🏷️</button>
+      <button class="category-pill" onclick="selectCategory('Electronics')">Electronics ⚡</button>
+      <button class="category-pill" onclick="selectCategory('Clothing')">Clothing 👗</button>
+      <button class="category-pill" onclick="selectCategory('Books')">Books 📚</button>
+    </div>
+  </div>
+
+  <!-- Featured Products Section -->
+  <main class="container">
+    <h2 class="section-title">Featured Products</h2>
+    <div class="product-grid" id="product-grid">
+      <!-- Dynamic Products Inserted Here -->
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    let allProducts = [];
+    let selectedCategory = 'All';
+    let searchQuery = '';
+
+    // Scroll Helper
+    function scrollToProducts(category) {
+      if (category) selectCategory(category);
+      document.getElementById('categories-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Load Products from API
+    async function loadProducts() {
+      try {
+        const res = await fetch('/api/products');
+        if (res.ok) {
+          allProducts = await res.json();
+          renderProducts();
+        }
+      } catch (err) {
+        console.error('Failed to load products', err);
+      }
+    }
+
+    // Render Products Grid
+    function renderProducts() {
+      const grid = document.getElementById('product-grid');
+      if (!grid) return;
+
+      // Filter products locally based on category and search query
+      let filtered = allProducts;
+
+      if (selectedCategory !== 'All') {
+        filtered = filtered.filter(p => p.category.toLowerCase() === selectedCategory.toLowerCase());
+      }
+
+      if (searchQuery) {
+        const queryLower = searchQuery.toLowerCase();
+        filtered = filtered.filter(p => 
+          p.name.toLowerCase().includes(queryLower) || 
+          p.description.toLowerCase().includes(queryLower)
+        );
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--gray);">No products found matching your selection.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(product => `
+        <article class="product-card" onclick="navigateToProduct(${product.id})">
+          <div class="product-card-img-wrapper">
+            <img src="${product.image}" alt="${product.name}" class="product-card-img" loading="lazy">
+            <span class="category-badge">${product.category}</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-name">${product.name}</h3>
+            <p class="product-desc">${product.description}</p>
+            <div class="product-card-footer">
+              <span class="product-price">₹${product.price}</span>
+              <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(${product.id}, this)">
+                🛒
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // Add to Cart Handlers
+    async function addToCart(productId, buttonElement) {
+      if (!state.token) {
+        showToast('Please login to add items to your cart.');
+        showAuthModal('login');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/cart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${state.token}`
+          },
+          body: JSON.stringify({ product_id: productId, quantity: 1 })
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || 'Failed to add item to cart');
+        }
+
+        // Checkmark animation
+        buttonElement.classList.add('success');
+        buttonElement.innerHTML = '✓';
+        showToast('Added to cart!');
+        await fetchCartCount();
+
+        setTimeout(() => {
+          buttonElement.classList.remove('success');
+          buttonElement.innerHTML = '🛒';
+        }, 1500);
+
+      } catch (err) {
+        showToast(err.message);
+      }
+    }
+
+    // Category Pill Selector
+    function selectCategory(category) {
+      selectedCategory = category;
+      
+      // Update Active classes
+      const pills = document.querySelectorAll('.category-pill');
+      pills.forEach(pill => {
+        const isCurrent = pill.innerText.includes(category);
+        pill.classList.toggle('active', isCurrent);
+      });
+
+      renderProducts();
+    }
+
+    // Set Search Query dynamically
+    window.filterProducts = function(query) {
+      searchQuery = query;
+      renderProducts();
+    };
+
+    function navigateToProduct(id) {
+      window.location.href = `/product.html?id=${id}`;
+    }
+
+    // Refresh display when user logs in or logs out
+    window.onUserAuthenticated = () => {
+      // Refresh list
+      loadProducts();
+    };
+
+    // On Load
+    window.addEventListener('load', async () => {
+      // Check query search parameter
+      const params = new URLSearchParams(window.location.search);
+      const searchParam = params.get('search');
+      if (searchParam) {
+        searchQuery = searchParam;
+      }
+      await loadProducts();
+    });
+  </script>
+</body>
+</html>

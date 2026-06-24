@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "description": "High-quality noise-canceling wireless over-ear headphones.",
+    "price": 99.99,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
+    "category": "Electronics",
+    "stock": 13
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "description": "Smart watch with heart rate monitor, GPS, and multi-sport tracking.",
+    "price": 149.99,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
+    "category": "Electronics",
+    "stock": 20
+  },
+  {
+    "id": 3,
+    "name": "Bluetooth Speaker",
+    "description": "Portable Bluetooth speaker with rich bass and crystal clear sound.",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400",
+    "category": "Electronics",
+    "stock": 25
+  },
+  {
+    "id": 4,
+    "name": "Casual Hoodie",
+    "description": "Soft fleece cotton hoodie with a cozy front pocket.",
+    "price": 39.99,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=400",
+    "category": "Clothing",
+    "stock": 30
+  },
+  {
+    "id": 5,
+    "name": "Running Sneakers",
+    "description": "Lightweight and breathable running sneakers designed for ultimate comfort.",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
+    "category": "Clothing",
+    "stock": 18
+  },
+  {
+    "id": 6,
+    "name": "Denim Jacket",
+    "description": "Durable and stylish cotton denim jacket perfect for all seasons.",
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1601333144130-8cbb312386b6?w=400",
+    "category": "Clothing",
+    "stock": 15
+  },
+  {
+    "id": 7,
+    "name": "Atomic Habits",
+    "description": "An easy and proven way to build good habits and break bad ones.",
+    "price": 16.99,
+    "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400",
+    "category": "Books",
+    "stock": 40
+  },
+  {
+    "id": 8,
+    "name": "Deep Work",
+    "description": "Rules for focused success in a distracted world.",
+    "price": 15.99,
+    "image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400",
+    "category": "Books",
+    "stock": 35
+  }
+]
